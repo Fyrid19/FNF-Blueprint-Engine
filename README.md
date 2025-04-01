@@ -5,7 +5,7 @@ Prototype Engine is an FNF engine that aims to provide a smooth and flexible mod
 > [!WARNING]
 > Right now the engine is under heavy development and is **NOT** recommended to use yet.
 
-## a little (not final) todo list of features ill probably forget to update
+## To-do List of Features (NOT FINAL)
 ### Editors
 - [ ] Character Editor
 - [ ] Chart Editor
@@ -15,7 +15,7 @@ Prototype Engine is an FNF engine that aims to provide a smooth and flexible mod
 - [ ] Dialogue Editor
 
 ### Modding
-- [ ] Note Skins
+- [ ] Note Skins & Types
 - [ ] Scripting (HScript & Lua)
 - [ ] Zip File Support
 - [ ] Custom Dialogue
@@ -25,6 +25,5 @@ Prototype Engine is an FNF engine that aims to provide a smooth and flexible mod
 ### Extra/Misc.
 - [ ] Replay System
 - [ ] In-game Crash Handler
-- [ ] Automatic Updater
+- [ ] In-game Updater
 - [ ] Weekend 1 Port (Low Priority)
-- [ ] Erect Songs (Unlikely)
