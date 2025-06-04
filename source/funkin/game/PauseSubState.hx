@@ -21,7 +21,7 @@ class PauseSubState extends MusicBeatSubstate
 
 	var pauseMusic:FlxSound;
 
-	var practiceText:FlxText;
+	var practiceText:FunkinText;
 
 	public function new(x:Float, y:Float)
 	{
@@ -40,30 +40,26 @@ class PauseSubState extends MusicBeatSubstate
 		bg.scrollFactor.set();
 		add(bg);
 
-		var levelInfo:FlxText = new FlxText(20, 15, 0, "", 32);
+		var levelInfo:FunkinText = new FunkinText(20, 15, "", 32);
 		levelInfo.text += PlayState.SONG.song;
 		levelInfo.scrollFactor.set();
-		levelInfo.setFormat(Paths.font("vcr.ttf"), 32);
 		levelInfo.updateHitbox();
 		add(levelInfo);
 
-		var levelDifficulty:FlxText = new FlxText(20, 15 + 32, 0, "", 32);
-		levelDifficulty.text += FunkinUtil.difficultyString();
+		var levelDifficulty:FunkinText = new FunkinText(20, 15 + 32, "", 32);
+		levelDifficulty.text += PlayState.songDiff.toUpperCase();
 		levelDifficulty.scrollFactor.set();
-		levelDifficulty.setFormat(Paths.font('vcr.ttf'), 32);
 		levelDifficulty.updateHitbox();
 		add(levelDifficulty);
 
-		var deathCounter:FlxText = new FlxText(20, 15 + 64, 0, "", 32);
+		var deathCounter:FunkinText = new FunkinText(20, 15 + 64, "", 32);
 		deathCounter.text = "Blue balled: " + PlayState.deathCounter;
 		deathCounter.scrollFactor.set();
-		deathCounter.setFormat(Paths.font('vcr.ttf'), 32);
 		deathCounter.updateHitbox();
 		add(deathCounter);
 
-		practiceText = new FlxText(20, 15 + 64 + 32, 0, "PRACTICE MODE", 32);
+		practiceText = new FunkinText(20, 15 + 64 + 32, "PRACTICE MODE", 32);
 		practiceText.scrollFactor.set();
-		practiceText.setFormat(Paths.font('vcr.ttf'), 32);
 		practiceText.updateHitbox();
 		practiceText.x = FlxG.width - (practiceText.width + 20);
 		practiceText.visible = PlayState.practiceMode;
@@ -177,7 +173,7 @@ class PauseSubState extends MusicBeatSubstate
 
 	function changeSelection(change:Int = 0):Void
 	{
-		FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
+		FlxG.sound.play(Paths.sound('menu/scrollMenu'), 0.4);
 
 		curSelected += change;
 

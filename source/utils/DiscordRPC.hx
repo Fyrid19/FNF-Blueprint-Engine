@@ -9,7 +9,7 @@ import sys.thread.Thread;
     public var state:String = "";
     public var details:String = "";
     public var largeImageKey:String = "logo";
-    public var largeImageText:String = "Protoype Engine Version: " + EngineMain.engineVer;
+    public var largeImageText:String = "Protoype Engine Version: " + Globals.ENGINE_VERSION_STRING;
     public var smallImageKey:String = "";
     public var smallImageText:String = "";
     public var hasStartTimestamp:Bool = false;
@@ -20,7 +20,7 @@ class DiscordRPC {
     public static var initialized:Bool = false;
     private static final defaultID:String = "1233843000283762739";
     public static var clientID:String = defaultID;
-    private static var presence:DiscordRichPresence = DiscordRichPresence.create();
+    private static var presence:DiscordRichPresence = new DiscordRichPresence();
 
     public static function init() {
         setupClient();
@@ -79,11 +79,11 @@ class DiscordRPC {
         return Std.int(timestamp / 1000); // formatted into milliseconds for discord to use
     
     private static function setupClient(?params:PresenceDetails = null) {
-        var handlers:DiscordEventHandlers = DiscordEventHandlers.create();
+        var handlers:DiscordEventHandlers = new DiscordEventHandlers();
 		handlers.ready = cpp.Function.fromStaticFunction(onReady);
 		handlers.disconnected = cpp.Function.fromStaticFunction(onDisconnected);
 		handlers.errored = cpp.Function.fromStaticFunction(onError);
-		Discord.Initialize(clientID, cpp.RawPointer.addressOf(handlers), 1, null);
+		Discord.Initialize(clientID, cpp.RawPointer.addressOf(handlers), true, null);
         if (params != null) changePresence(params) else changePresence({});
         initialized = true;
     }

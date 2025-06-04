@@ -5,6 +5,10 @@ import flixel.graphics.FlxGraphic;
 import openfl.display.BitmapData;
 import openfl.system.System;
 
+#if sys
+import sys.io.File;
+#end
+
 /**
  * Funkin asset library, used for caching, returning files, and more.
  */
@@ -33,7 +37,6 @@ class FunkinAssets {
 				FlxG.bitmap.remove(FlxG.bitmap.get(key));
             }
 		}
-        FlxG.bitmap.dumpCache(); // i am desperate to clean memory
         _cache.clearCaches();
         System.gc();
     }
@@ -93,5 +96,15 @@ class FunkinAssets {
     public static function getJson(Path:String) {
         var rawJson:String = Assets.getText(Path);
         return haxe.Json.parse(rawJson);
+    }
+
+    /**
+     * Returns a parsed TOML file
+     * @param Path      The path to the toml file
+     * @return          Parsed TOML file
+     */
+    public static function getToml(Path:String) {
+        var parser = new haxetoml.TomlParser();
+        return parser.parse(File.getContent(Path));
     }
 }

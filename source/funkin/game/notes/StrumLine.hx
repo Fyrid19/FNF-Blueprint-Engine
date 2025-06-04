@@ -4,12 +4,16 @@ import funkin.game.notes.NoteNew as Note;
 import funkin.game.notes.SustainTrail;
 import flixel.util.FlxSort;
 
-class StrumLine extends FlxSpriteGroup {
+class StrumLine extends FlxTypedGroup<StrumNote> {
     public var scrollSpeed:Float;
     public var playerStrum:Bool;
     public var downScroll:Bool;
+
+    public var strumID:Int;
     
-    public var unspawnNotes:Array<NoteBasic>;
+    public var unspawnNotes:Array<Note>;
+    
+    public var parentChar:Character;
 
     public function new(scrollSpeed:Float = 1.0, playerStrum:Bool = false, ?downScroll:Bool) {
         super();
@@ -18,10 +22,13 @@ class StrumLine extends FlxSpriteGroup {
         this.playerStrum = playerStrum;
         this.downScroll = downScroll != null ? downScroll : FunkinData.data.get('downScroll');
         
-        unspawnNotes = new Array<NoteBasic>();
+        unspawnNotes = new Array<Note>();
 
         for (i in 0...3) {
-            var strumNote:StrumNote;
+            var strumNote:StrumNote = new StrumNote(i);
+            strumNote.x += Note.swagWidth * i;
+            strumNote.ID = i;
+            add(strumNote);
         }
     }
 
@@ -49,7 +56,9 @@ class StrumLine extends FlxSpriteGroup {
         }
     }
 
-    public function playAnim(dir:Direction) {
-        
+    public function playAnim(dir:Direction, animName:String) {
+        for (note in members) if (note.ID == dir) {
+            note.animation.play(animName);
+        }
     }
 }

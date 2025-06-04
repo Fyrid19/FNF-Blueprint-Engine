@@ -90,15 +90,18 @@ class Paths {
         return getPath(path);
     }
 
-    inline public static function chart(song:String, diff:String = 'normal', legacy:Bool) {
-        var songLowercase:String = song.toLowerCase();
-        var path:String = 'songs/$songLowercase/$diff/';
-        path = Assets.exists(path) ? path : 'songs/$songLowercase/';
-        return legacy ? '$path/chart/$diff.json' : '$path/$songLowercase.chrt';
+    // admittedly a little more complicated than i thought
+    inline public static function chart(song:String, diff:String = 'normal', ?subFolder:String = '') {
+        var chartPath:String = 'songs/$song/charts/';
+        if (subFolder.length > 1)
+            chartPath = 'songs/$song/$subFolder/charts/';
+        return chartPath + '$diff.json';
     }
 
-    inline public static function stage(key:String, ?library:String)
+    inline public static function stage(key:String, ?library:String) {
+        // if (key.endsWith('.png')) return FunkinAssets.getCacheGraphic(getPath('stages/$key', library));
         return getPath('stages/$key', library);
+    }
 
     inline public static function video(key:String, ?ext:String = 'mp4')
         return getPath('videos/$key.$ext');

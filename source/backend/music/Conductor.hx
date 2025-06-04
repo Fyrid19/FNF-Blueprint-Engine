@@ -1,6 +1,7 @@
 package backend.music;
 
 import flixel.util.FlxSignal;
+import funkin.game.song.Song.SongData;
 
 typedef SignatureChange = {
     ?numerator:Int,
@@ -50,6 +51,12 @@ class Conductor {
 
     public static var onSongStart:FlxSignal = new FlxSignal();
     public static var onSongEnd:FlxSignal = new FlxSignal();
+    
+    // soon to be removed (or rather moved)
+	public static var lastSongPos:Float;
+	public static var safeFrames:Int = 10;
+	public static var safeZoneOffset:Float = (safeFrames / 60) * 1000;
+	public static var offset:Float = 0;
 
     public function new() {}
 
@@ -63,9 +70,8 @@ class Conductor {
             songTime: 0
         };
 
-        for (i in 0...bpmMap.length) {
-            if (songPosition == bpmMap[i].songTime)
-                lastBPMChange = bpmMap[i];
+        for (i in 0...bpmMap.length) if (songPosition == bpmMap[i].songTime) {
+            lastBPMChange = bpmMap[i];
         }
 
         if (lastBPMChange.bpm > 0 && lastBPMChange.bpm != bpm) changeBPM(lastBPMChange.bpm);
@@ -100,6 +106,33 @@ class Conductor {
         onBeatHit.removeAll();
         onMeasureHit.removeAll();
         onBPMChange.removeAll();
+    }
+
+    // will be here once i implement events
+    public static function mapBPMChanges(song:SongData) {
+		bpmMap = [];
+
+		var curBPM:Float = song.bpm;
+		var totalSteps:Int = 0;
+		var totalPos:Float = 0;
+		// for (i in 0...song.notes.length)
+		// {
+		// 	if(song.notes[i].changeBPM && song.notes[i].bpm != curBPM)
+		// 	{
+		// 		curBPM = song.notes[i].bpm;
+		// 		var event:BPMChange = {
+		// 			stepTime: totalSteps,
+		// 			songTime: totalPos,
+		// 			bpm: curBPM
+		// 		};
+		// 		bpmMap.push(event);
+		// 	}
+
+		// 	var deltaSteps:Int = song.notes[i].lengthInSteps;
+		// 	totalSteps += deltaSteps;
+		// 	totalPos += ((60 / curBPM) * 1000 / 4) * deltaSteps;
+		// }
+		trace("new BPM map BUDDY " + bpmMap);
     }
 
     public static function changeBPM(newBPM:Float) {

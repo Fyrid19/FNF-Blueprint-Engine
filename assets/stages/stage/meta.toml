@@ -1,0 +1,14 @@
+name = 'Stage'
+stage_zoom = 0.9
+
+[bf]
+pos = [770, 450]
+cam_offset = [0, 0]
+
+[gf]
+pos = [400, 130]
+cam_offset = [0, 0]
+
+[dad]
+pos = [100, 100]
+cam_offset = [0, 0]

@@ -45,7 +45,7 @@ class Note extends FlxSprite {
 
 		this.noteData = noteData;
 
-		var daStage:String = PlayState.curStage;
+		var daStage:String = PlayState.SONG.stage;
 
 		switch (daStage) {
 			case 'school' | 'schoolEvil':
@@ -70,11 +70,11 @@ class Note extends FlxSprite {
 					animation.add('bluehold', [1]);
 				}
 
-				setGraphicSize(Std.int(width * PlayState.daPixelZoom));
+				setGraphicSize(Std.int(width * 6));
 				updateHitbox();
 
 			default:
-				frames = Paths.getAtlas('NOTE_assets');
+				frames = Paths.getAtlas('hud/NOTE_assets');
 
 				animation.addByPrefix('greenScroll', 'green instance');
 				animation.addByPrefix('redScroll', 'red instance');
@@ -144,7 +144,7 @@ class Note extends FlxSprite {
 
 			x -= width / 2;
 
-			if (PlayState.curStage.startsWith('school'))
+			if (PlayState.SONG.stage.startsWith('school'))
 				x += 30;
 
 			if (prevNote.isSustainNote) {

@@ -114,6 +114,9 @@
 
 	<!--FlxPartialSound-->
 	<haxelib name="flxpartialsound" />
+	
+	<!--HaxeToml-->
+	<haxelib name="haxetoml" />
 
 	<!-- <haxelib name="hxCodec" if="desktop || mobile" /> -->
 

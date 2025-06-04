@@ -17,12 +17,13 @@ import funkin.game.song.*;
 
 import shaders.*;
 
+import backend.music.Conductor;
+import backend.music.MusicBeatState;
+import backend.music.MusicBeatSubstate;
+
 import backend.Globals;
-import backend.Conductor;
-import backend.MusicBeatState;
-import backend.MusicBeatSubstate;
 import backend.FunkinData;
-import backend.EngineMain;
+import backend.Difficulty;
 import backend.assets.Paths;
 import backend.assets.FunkinAssets;
 
@@ -42,6 +43,7 @@ import flixel.group.FlxGroup;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.group.FlxSpriteGroup;
 import flixel.math.FlxMath;
+import flixel.math.FlxPoint;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import flixel.text.FlxText;

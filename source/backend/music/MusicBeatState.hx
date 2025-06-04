@@ -11,6 +11,9 @@ class MusicBeatState extends FlxTransitionableState implements IMusicBeat {
     public var curBeat:Int = 0;
     public var curMeasure:Int = 0;
 
+    public var controls(get, never):Controls.ControlMap;
+    inline function get_controls():Controls.ControlMap return Controls.controlMap;
+
     public function new() {
         super();
     }

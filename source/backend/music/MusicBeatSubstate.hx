@@ -6,12 +6,15 @@ import backend.interfaces.IMusicBeat;
 /**
  * FlxSubState with Music Beat properties.
  */
-class MusicBeatSubState extends FlxSubState implements IMusicBeat {
+class MusicBeatSubstate extends FlxSubState implements IMusicBeat {
     public var curStep:Int = 0;
     public var curBeat:Int = 0;
     public var curMeasure:Int = 0;
 
     public var pauseState:Bool;
+
+    public var controls(get, never):Controls.ControlMap;
+    inline function get_controls():Controls.ControlMap return Controls.controlMap;
 
     public function new(?pauseState:Bool = false) {
         super();

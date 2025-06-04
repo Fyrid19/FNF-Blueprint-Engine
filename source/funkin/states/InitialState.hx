@@ -17,7 +17,8 @@ import sys.FileSystem;
 **/
 class InitialState extends MusicBeatState {
     override function create() {
-		FlxG.save.bind('prototype', EngineMain.savePath); // just a precaution
+		Conductor.init();
+		FunkinAssets.init();
         FunkinData.initialize();
 		Highscore.load();
 
@@ -67,13 +68,7 @@ class InitialState extends MusicBeatState {
 			// trace('focus gained');
 		});
 
-		var latestCommit = EngineMain.getLatestCommit();
-		trace('- Github Info -');
-		trace('Repo Name: ' + EngineMain.repository.name);
-		trace('Repo Desc: ' + EngineMain.repository.description);
-		trace('Current Commit: ' + Globals.COMMIT_NUMBER + '(${Globals.COMMIT_HASH})');
-
-		FunkinAssets.init();
+		trace('commit ' + Globals.COMMIT_NUMBER + '(${Globals.COMMIT_HASH})');
 		
 		if (FunkinData.initialized)
         	FlxG.switchState(new funkin.states.WarningState());

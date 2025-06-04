@@ -12,4 +12,6 @@ class Globals {
 
     public static final COMMIT_NUMBER:Int = backend.macro.CommitMacro.curCommit;
     public static final COMMIT_HASH:String = backend.macro.CommitMacro.curCommitHash;
+    
+    public static final CAMERA_LERP:Float = 0.04;
 }

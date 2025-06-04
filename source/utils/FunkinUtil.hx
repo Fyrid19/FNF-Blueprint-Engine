@@ -11,7 +11,7 @@ class FunkinUtil
 
 	public static function difficultyString():String
 	{
-		return difficultyArray[PlayState.storyDifficulty];
+		return difficultyArray[Difficulty.getIndex(PlayState.songDiff)]; // fucking dumb but here to prevent errors until i remove it
 	}
 
 	public static function coolTextFile(path:String):Array<String>

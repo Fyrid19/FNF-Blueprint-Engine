@@ -14,7 +14,7 @@ class MemoryCounter extends Sprite {
         memText.text = "";
         memText.autoSize = LEFT;
         memText.multiline = false;
-        memText.defaultTextFormat = new TextFormat(FullFPS.fpsFont, 10, 0xFFFFFF);
+        memText.defaultTextFormat = new TextFormat(FullFPS.fpsFont, 14, 0xFFFFFF);
         addChild(memText);
     }
 

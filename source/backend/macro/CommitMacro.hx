@@ -1,4 +1,4 @@
-package source.backend.macro; // stolen from funkin rewrite, technically not stealing since its mine lol
+package backend.macro; // stolen from funkin rewrite, technically not stealing since its mine lol
 
 #if macro
 import haxe.macro.Context;

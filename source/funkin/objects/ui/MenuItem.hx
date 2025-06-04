@@ -10,7 +10,7 @@ class MenuItem extends FlxSprite {
         super(x, y);
         realName = name;
         imageName = StringTools.replace(name, ' ', '_');
-        frames = Paths.getSparrowAtlas('mainmenu/' + imageName + '_menu');
+        frames = Paths.getSparrowAtlas('menus/main/' + imageName + '_menu');
 
         antialiasing = true;
 

@@ -6,7 +6,7 @@ import lime.net.curl.CURLCode;
 
 class StoryMenuState extends MusicBeatState
 {
-	var scoreText:FlxText;
+	var scoreText:FunkinText;
 
 	var weekData:Array<Dynamic> = [
 		['Tutorial'],
@@ -44,11 +44,11 @@ class StoryMenuState extends MusicBeatState
 		"TANKMAN"
 	];
 
-	var txtWeekTitle:FlxText;
+	var txtWeekTitle:FunkinText;
 
 	var curWeek:Int = 0;
 
-	var txtTracklist:FlxText;
+	var txtTracklist:FunkinText;
 
 	var grpWeekText:FlxTypedGroup<WeekItem>;
 	var grpWeekCharacters:FlxTypedGroup<MenuCharacter>;
@@ -70,20 +70,19 @@ class StoryMenuState extends MusicBeatState
 
 		persistentUpdate = persistentDraw = true;
 
-		scoreText = new FlxText(10, 10, 0, "SCORE: 49324858", 36);
+		scoreText = new FunkinText(10, 10, "SCORE: 49324858", 36);
 		scoreText.setFormat("VCR OSD Mono", 32);
 
-		txtWeekTitle = new FlxText(FlxG.width * 0.7, 10, 0, "", 32);
-		txtWeekTitle.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, RIGHT);
+		txtWeekTitle = new FunkinText(FlxG.width * 0.7, 10, "", 32);
+		txtWeekTitle.alignment = RIGHT;
 		txtWeekTitle.alpha = 0.7;
 
-		var rankText:FlxText = new FlxText(0, 10);
+		var rankText:FunkinText = new FunkinText(0, 10);
 		rankText.text = 'RANK: GREAT';
-		rankText.setFormat(Paths.font("vcr.ttf"), 32);
 		rankText.size = scoreText.size;
 		rankText.screenCenter(X);
 
-		var ui_tex = Paths.getSparrowAtlas('campaign_menu_UI_assets');
+		var ui_tex = Paths.getSparrowAtlas('menus/story/campaign_menu_UI_assets');
 		var yellowBG:FlxSprite = new FlxSprite(0, 56).makeGraphic(FlxG.width, 400, 0xFFF9CF51);
 
 		grpWeekText = new FlxTypedGroup<WeekItem>();
@@ -191,9 +190,8 @@ class StoryMenuState extends MusicBeatState
 		add(yellowBG);
 		add(grpWeekCharacters);
 
-		txtTracklist = new FlxText(FlxG.width * 0.05, yellowBG.x + yellowBG.height + 100, 0, "Tracks", 32);
+		txtTracklist = new FunkinText(FlxG.width * 0.05, yellowBG.x + yellowBG.height + 100, "Tracks", 32);
 		txtTracklist.alignment = CENTER;
-		txtTracklist.font = rankText.font;
 		txtTracklist.color = 0xFFe55777;
 		add(txtTracklist);
 		// add(rankText);
@@ -264,7 +262,7 @@ class StoryMenuState extends MusicBeatState
 
 		if (controls.BACK && !movedBack && !selectedWeek)
 		{
-			FlxG.sound.play(Paths.sound('cancelMenu'));
+			FlxG.sound.play(Paths.sound('menu/cancelMenu'));
 			movedBack = true;
 			FlxG.switchState(new MainMenuState());
 		}
@@ -282,14 +280,14 @@ class StoryMenuState extends MusicBeatState
 		{
 			if (stopspamming == false)
 			{
-				FlxG.sound.play(Paths.sound('confirmMenu'));
+				FlxG.sound.play(Paths.sound('menu/confirmMenu'));
 
 				grpWeekText.members[curWeek].startFlashing();
 				grpWeekCharacters.members[1].animation.play('bfConfirm');
 				stopspamming = true;
 			}
 
-			PlayState.storyPlaylist = weekData[curWeek];
+			PlayState.songPlaylist = weekData[curWeek];
 			PlayState.isStoryMode = true;
 			selectedWeek = true;
 
@@ -303,14 +301,10 @@ class StoryMenuState extends MusicBeatState
 					diffic = '-hard';
 			}
 
-			PlayState.storyDifficulty = curDifficulty;
-
-			PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
 			PlayState.storyWeek = curWeek;
 			PlayState.campaignScore = 0;
-			new FlxTimer().start(1, function(tmr:FlxTimer)
-			{
-				LoadingState.loadAndSwitchState(new PlayState(), true);
+			new FlxTimer().start(1, function(tmr:FlxTimer) {
+				LoadingState.loadAndSwitchState(new PlayState(PlayState.songPlaylist[0], true, curDifficulty), true);
 			});
 		}
 	}
@@ -372,7 +366,7 @@ class StoryMenuState extends MusicBeatState
 			bullShit++;
 		}
 
-		FlxG.sound.play(Paths.sound('scrollMenu'));
+		FlxG.sound.play(Paths.sound('menu/scrollMenu'));
 
 		updateText();
 	}

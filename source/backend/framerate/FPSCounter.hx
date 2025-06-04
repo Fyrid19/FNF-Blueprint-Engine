@@ -27,8 +27,8 @@ class FPSCounter extends Sprite {
 			addChild(text);
 		}
 
-		fpsCountTxt.defaultTextFormat = new TextFormat(FullFPS.fpsFont, 14, 0xFFFFFF);
-		fpsLabelTxt.defaultTextFormat = new TextFormat(FullFPS.fpsFont, 10, 0xFFFFFF);
+		fpsCountTxt.defaultTextFormat = new TextFormat(FullFPS.fpsFont, 18, 0xFFFFFF);
+		fpsLabelTxt.defaultTextFormat = new TextFormat(FullFPS.fpsFont, 14, 0xFFFFFF);
 		fpsLabelTxt.text = "FPS";
 
 		times = [];

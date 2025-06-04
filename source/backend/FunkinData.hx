@@ -36,7 +36,7 @@ class FunkinData {
 
     public static function initialize() {
         save = new FlxSave();
-        save.bind('prototype', EngineMain.savePath);
+        save.bind('prototype', Globals.SAVE_PATH);
         data = dataDefault;
 
         loadActiveMods();
@@ -57,7 +57,7 @@ class FunkinData {
 
     public static function loadKeybinds() {
         var csave = new FlxSave();
-        csave.bind('controls', EngineMain.savePath);
+        csave.bind('controls', Globals.SAVE_PATH);
         
         if (csave.data.keybinds == null) {
             csave.data.keybinds = Controls.keyBinds;
