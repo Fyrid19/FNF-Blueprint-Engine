@@ -1,5 +1,5 @@
 # Friday Night Funkin': Blueprint Engine
-![Placeholder Logo](https://imgur.com/RxX1uMs)
+![Placeholder Logo](https://i.postimg.cc/4NX8PXRm/blueprint-placeholder.png)
 Blueprint Engine (formerly Prototype Engine) is an FNF engine based off of Friday Night Funkin' v0.2.7, aiming to provide a flexible modding scene for everyone. 
 
 
