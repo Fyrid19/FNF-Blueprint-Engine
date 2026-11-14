@@ -7,22 +7,28 @@ import openfl.system.System;
 
 class MemoryCounter extends Sprite {
 	public var memText:TextField;
-    public function new() {
-        super();
-
+	
+	public function new() {
+		super();
+		
 		memText = new TextField();
-        memText.text = "";
-        memText.autoSize = LEFT;
-        memText.multiline = false;
-        memText.defaultTextFormat = new TextFormat(FullFPS.fpsFont, 14, 0xFFFFFF);
-        addChild(memText);
-    }
-
-    private var memPeak:Float = 0;
+		memText.text = "";
+		memText.autoSize = LEFT;
+		memText.multiline = false;
+		memText.defaultTextFormat = new TextFormat(FullFPS.fpsFont, 14, 0xFFFFFF);
+		addChild(memText);
+	}
+	
+	private var memPeak:Float = 0;
+	private var gcMemPeak:Float = 0;
+	
 	public override function __enterFrame(delta:Int) {
-        var mem:Float = cpp.vm.Gc.memInfo64(cpp.vm.Gc.MEM_INFO_USAGE);
-        if (mem > memPeak) memPeak = mem;
-
-        memText.text = 'Memory: ' + FunkinUtil.formatMemory(mem) + ' / ' + FunkinUtil.formatMemory(memPeak);
-    }
+		var mem:Float = System.totalMemory;
+		var gcMem:Float = cpp.vm.Gc.memInfo64(cpp.vm.Gc.MEM_INFO_USAGE);
+		
+		if (mem > memPeak) memPeak = mem;
+		if (gcMem > gcMemPeak) gcMemPeak = gcMem;
+		
+		memText.text = 'MEM: ' + FunkinUtil.formatMemory(mem) + ' / ' + FunkinUtil.formatMemory(memPeak);
+	}
 }

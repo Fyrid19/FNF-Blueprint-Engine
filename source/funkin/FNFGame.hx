@@ -5,10 +5,12 @@ import flixel.FlxGame;
 // mainly used for debug keybinds
 class FNFGame extends FlxGame {
     override function update() {
-		super.update();
-
-        // temporary solution
-        // FunkinData.save.data.volume = FlxG.sound.volume;
+        try {
+            super.update();
+        } catch (e:Dynamic) {
+            trace('Error in update: ' + e);
+            Sys.exit(1);
+        }
 
         debugKeys();
     }

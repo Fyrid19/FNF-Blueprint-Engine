@@ -1,6 +1,5 @@
 ## Ignore the export file, it just bloats the repo with really unnecessary shit and ruins compiling
 export/
-.vscode/
 
 ## Don't include locally installed libraries
 .haxelib/

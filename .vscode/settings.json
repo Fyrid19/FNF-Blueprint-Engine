@@ -1,0 +1,14 @@
+{
+    "editor.tabSize": 4,
+    
+    "files.associations": {
+        "*.hscript": "haxe",
+        "*.hxs": "haxe",
+        "*.hxp": "haxe"
+    },
+
+    "[haxe]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": false
+    }
+}

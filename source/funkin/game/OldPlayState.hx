@@ -140,7 +140,7 @@ class PlayState extends MusicBeatState
 		// FlxG.sound.cache(Paths.voices(PlayState.SONG.song));
 
 		// var gameCam:FlxCamera = FlxG.camera;
-		camGame = new SwagCamera();
+		camGame = new FlxCamera();
 		camHUD = new FlxCamera();
 		camHUD.bgColor.alpha = 0;
 

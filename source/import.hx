@@ -27,8 +27,6 @@ import backend.Difficulty;
 import backend.assets.Paths;
 import backend.assets.FunkinAssets;
 
-import backend.SwagCamera;
-
 import openfl.Lib;
 
 import lime.app.Application;

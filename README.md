@@ -1,9 +1,15 @@
-# Friday Night Funkin': Prototype Engine
-Prototype Engine is an FNF engine that aims to provide a smooth and flexible modding scene for everyone.
+# Friday Night Funkin': Blueprint Engine
+![Placeholder Logo](https://imgur.com/a/Ywuq2v3)
+Blueprint Engine (formerly Prototype Engine) is an FNF engine based off of Friday Night Funkin' v0.2.7, aiming to provide a flexible modding scene for everyone. 
 
 
 > [!WARNING]
 > Right now the engine is under heavy development and is **NOT** recommended to use yet.
+
+## How to use (Hardcoding)
+Blueprint makes use of [hmm](https://github.com/andywhite37/hmm) when it comes to installing haxe libraries. Follow the instructions below to get started!
+
+1. soon
 
 ## To-do List of Features (NOT FINAL)
 ### Editors
@@ -26,4 +32,3 @@ Prototype Engine is an FNF engine that aims to provide a smooth and flexible mod
 - [ ] Replay System
 - [ ] In-game Crash Handler
 - [ ] In-game Updater
-- [ ] Weekend 1 Port (Low Priority)
