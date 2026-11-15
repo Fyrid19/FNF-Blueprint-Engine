@@ -31,7 +31,7 @@ class FunkinData {
 	
 	public static function initialize() {
 		save = new FlxSave();
-		save.bind('prototype', Globals.SAVE_PATH);
+		save.bind('blueprint', Globals.SAVE_PATH);
 		data = dataDefault;
 		
 		loadActiveMods();

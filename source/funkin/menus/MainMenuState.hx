@@ -1,4 +1,4 @@
-package funkin.states;
+package funkin.menus;
 
 import flixel.effects.FlxFlicker;
 
@@ -63,7 +63,7 @@ class MainMenuState extends MusicBeatState {
 		funkinVerText.x = offset[0];
 		funkinVerText.y = FlxG.height - funkinVerText.height - offset[1];
 		add(funkinVerText);
-		var engineVerText:FunkinText = new FunkinText(0, 0, "Prototype Engine " + engineVer, 16);
+		var engineVerText:FunkinText = new FunkinText(0, 0, "Blueprint Engine " + engineVer, 16);
 		engineVerText.scrollFactor.set();
 		engineVerText.x = offset[0];
 		engineVerText.y = funkinVerText.y - engineVerText.height - offset[1];

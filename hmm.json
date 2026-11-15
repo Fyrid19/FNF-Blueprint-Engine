@@ -1,13 +1,6 @@
 {
   "dependencies": [
     {
-      "name": "FlxPartialSound",
-      "type": "git",
-      "dir": null,
-      "ref": "master",
-      "url": "https://github.com/FunkinCrew/FlxPartialSound"
-    },
-    {
       "name": "flixel",
       "type": "git",
       "dir": null,
@@ -29,32 +22,25 @@
       "url": "https://github.com/MaybeMaru/flixel-animate"
     },
     {
-      "name": "flixel-tools",
-      "type": "git",
-      "dir": null,
-      "ref": "master",
-      "url": "https://github.com/HaxeFlixel/flixel-tools"
-    },
-    {
       "name": "flixel-ui",
       "type": "git",
       "dir": null,
-      "ref": "master",
+      "ref": "ff2f30148cb1a7c9b10373aa89cf1e0d7aafb648",
       "url": "https://github.com/HaxeFlixel/flixel-ui"
+    },
+    {
+      "name": "FlxPartialSound",
+      "type": "git",
+      "dir": null,
+      "ref": "c6aaf00774f1c1682ab47fb5703ae213175fa362",
+      "url": "https://github.com/FunkinCrew/FlxPartialSound"
     },
     {
       "name": "funkin.vis",
       "type": "git",
       "dir": null,
-      "ref": "master",
+      "ref": "b6717304eb154f7b1201ca56b789c01b6a43439f",
       "url": "https://github.com/FunkinCrew/funkVis.git"
-    },
-    {
-      "name": "https://github.com/FunkinCrew/openfl",
-      "type": "git",
-      "dir": null,
-      "ref": "master",
-      "url": "3e07f8b542fe1994a6f5dd4bd2d3aca04ce93951"
     },
     {
       "name": "hxcpp",
@@ -108,7 +94,7 @@
       "name": "polymod",
       "type": "git",
       "dir": null,
-      "ref": "master",
+      "ref": "6854dab7c5739979dbd1e19a345c17b09c80ea7e",
       "url": "https://github.com/FunkinCrew/polymod"
     },
     {
