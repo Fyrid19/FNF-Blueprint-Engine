@@ -15,7 +15,7 @@ class MemoryCounter extends Sprite {
 		memText.text = "";
 		memText.autoSize = LEFT;
 		memText.multiline = false;
-		memText.defaultTextFormat = new TextFormat(FullFPS.fpsFont, 14, 0xFFFFFF);
+		memText.defaultTextFormat = new TextFormat(FullFPS.fpsFont, 12, 0xFFFFFF);
 		addChild(memText);
 	}
 	
@@ -29,6 +29,6 @@ class MemoryCounter extends Sprite {
 		if (mem > memPeak) memPeak = mem;
 		if (gcMem > gcMemPeak) gcMemPeak = gcMem;
 		
-		memText.text = 'MEM: ' + FunkinUtil.formatMemory(mem) + ' / ' + FunkinUtil.formatMemory(memPeak);
+		memText.text = 'MEM: ${FunkinUtil.formatMemory(mem)} / ${FunkinUtil.formatMemory(memPeak)}';
 	}
 }

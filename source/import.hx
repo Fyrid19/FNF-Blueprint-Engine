@@ -3,12 +3,10 @@
 #if DISCORD_RPC
 import utils.DiscordRPC;
 #end
-
 import utils.FunkinUtil;
 import utils.Highscore;
 
 import funkin.game.PlayState;
-import funkin.states.LoadingState;
 import funkin.states.*;
 import funkin.objects.*;
 import funkin.objects.ui.*;
@@ -17,15 +15,15 @@ import funkin.game.song.*;
 
 import shaders.*;
 
-import backend.music.Conductor;
-import backend.music.MusicBeatState;
-import backend.music.MusicBeatSubstate;
-
 import backend.Globals;
 import backend.FunkinData;
 import backend.Difficulty;
+import backend.music.Conductor;
+import backend.music.MusicBeatState;
+import backend.music.MusicBeatSubstate;
 import backend.assets.Paths;
 import backend.assets.FunkinAssets;
+import backend.transition.LoadingState;
 
 import openfl.Lib;
 

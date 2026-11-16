@@ -18,12 +18,12 @@ class EngineWatermark extends Sprite {
 			text.text = "";
 			text.autoSize = LEFT;
 			text.multiline = false;
-			text.defaultTextFormat = new TextFormat(FullFPS.fpsFont, 10, 0xFFFFFF);
+			text.defaultTextFormat = new TextFormat(FullFPS.fpsFont, 8, 0xFFFFFF);
 			addChild(text);
 		}
 		
-		watermarkTxt.text = 'Blueprint Engine ' + Globals.ENGINE_VERSION_STRING;
-		commitTxt.text = 'Commit ' + Globals.COMMIT_NUMBER;
+		watermarkTxt.text = 'Blueprint Engine ${Globals.ENGINE_VERSION_STRING}';
+		commitTxt.text = 'Commit ${Globals.COMMIT_NUMBER} (${Globals.COMMIT_HASH})';
 		commitTxt.y = watermarkTxt.y + watermarkTxt.height;
 	}
 }
