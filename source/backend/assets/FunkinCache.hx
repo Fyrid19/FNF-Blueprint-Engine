@@ -46,7 +46,7 @@ class FunkinCache {
 		var graphic:FlxGraphic = FlxGraphic.fromBitmapData(bitmap, false, key);
 		graphic.persist = true;
 		graphicCache.set(key, graphic);
-		trace('Graphic cached: ' + key);
+		// trace('Graphic cached: ' + key);
 	}
 	
 	public function cacheSound(key:String, ?asset:Sound) {
@@ -59,7 +59,7 @@ class FunkinCache {
 		
 		if (!soundCache.exists(key)) {
 			if (Assets.exists(key)) {
-				trace('Sound cached: ' + key);
+				// trace('Sound cached: ' + key);
 				soundCache.set(key, sound);
 				return;
 			} else {

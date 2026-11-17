@@ -1,6 +1,13 @@
 {
   "dependencies": [
     {
+      "name": "FlxPartialSound",
+      "type": "git",
+      "dir": null,
+      "ref": "c6aaf00774f1c1682ab47fb5703ae213175fa362",
+      "url": "https://github.com/FunkinCrew/FlxPartialSound"
+    },
+    {
       "name": "flixel",
       "type": "git",
       "dir": null,
@@ -27,13 +34,6 @@
       "dir": null,
       "ref": "ff2f30148cb1a7c9b10373aa89cf1e0d7aafb648",
       "url": "https://github.com/HaxeFlixel/flixel-ui"
-    },
-    {
-      "name": "FlxPartialSound",
-      "type": "git",
-      "dir": null,
-      "ref": "c6aaf00774f1c1682ab47fb5703ae213175fa362",
-      "url": "https://github.com/FunkinCrew/FlxPartialSound"
     },
     {
       "name": "funkin.vis",
@@ -65,6 +65,13 @@
       "dir": null,
       "ref": "31ae19f29f02bbf68b5cf73c0c7c652be674aab3",
       "url": "https://github.com/MAJigsaw77/hxvlc"
+    },
+    {
+      "name": "json5hx",
+      "type": "git",
+      "dir": null,
+      "ref": "d2693ec2beb6767cefe6644224e46fa150f12eb8",
+      "url": "https://github.com/Sword352/json5hx"
     },
     {
       "name": "jsonpatch",
@@ -106,6 +113,13 @@
       "name": "thx.semver",
       "type": "haxelib",
       "version": "0.2.2"
+    },
+    {
+      "name": "toml.hx",
+      "type": "git",
+      "dir": null,
+      "ref": "d10d05d5baa62dbca876d662a426bbd0a4ff9e89",
+      "url": "https://github.com/Paopun20/Toml.hx"
     }
   ]
 }

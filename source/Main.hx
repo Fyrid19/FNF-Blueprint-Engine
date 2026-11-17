@@ -1,6 +1,6 @@
 package;
 
-import funkin.FNFGame;
+import backend.FNFGame;
 
 import flixel.FlxState;
 

@@ -23,14 +23,13 @@ class Project extends HXProject {
 		
 		sources.push(SOURCE_PATH);
 		
-		includeAssets("assets");
-		includeAssets("assets", "assets", ["*"], [isWeb() ? "*.ogg" : "*.mp3"]);
-		
 		setDefines();
 		addLibraries();
 		
+		includeAssets("assets", "assets", ["*"], [isWeb() ? "*.ogg" : "*.mp3"]);
+		if (isDef("MOD_SUPPORT")) includeAssets("mods", "mods");
+		
 		appConfig();
-		setIcons();
 	}
 	
 	function appConfig() {
@@ -55,6 +54,8 @@ class Project extends HXProject {
 		window.vsync = false;
 		window.orientation = Orientation.LANDSCAPE;
 		window.antialiasing = 1;
+		
+		setIcons();
 	}
 	
 	function addLibraries() {
@@ -65,9 +66,10 @@ class Project extends HXProject {
 		
 		addLib('flixel-animate');
 		
-		addLib('flxpartialsound');
+		addLib('FlxPartialSound');
 		
-		// addLib('haxetoml');
+		addLib('toml.hx');
+		addLib('json5hx');
 		
 		if (isDef("DISCORD_RPC"))
 			addLib('hxdiscord_rpc');
@@ -81,9 +83,10 @@ class Project extends HXProject {
 	}
 	
 	function setDefines() {
+		setDef("MOD_SUPPORT");
+
 		if (!isWeb()) {
 			setDef("PRELOAD_ALL");
-			setDef("MOD_SUPPORT");
 		}
 		
 		if (isDesktop()) {

@@ -98,7 +98,7 @@ class FunkinAssets {
 	 */
 	public static function getJson(Path:String) {
 		var rawJson:String = Assets.getText(Path);
-		return haxe.Json.parse(rawJson);
+		return haxe.Json5.parse(rawJson);
 	}
 	
 	/**
@@ -107,7 +107,6 @@ class FunkinAssets {
 	 * @return          Parsed TOML file
 	 */
 	public static function getToml(Path:String) {
-		// var parser = new haxetoml.TomlParser();
-		// return parser.parse(File.getContent(Path));
+		return paopao.toml.Toml.parseFile(Path);
 	}
 }

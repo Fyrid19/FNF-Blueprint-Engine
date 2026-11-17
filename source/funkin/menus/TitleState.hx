@@ -231,11 +231,6 @@ class TitleState extends MusicBeatState {
 	var transitioning:Bool = false;
 	
 	override function update(elapsed:Float) {
-		#if debug
-		if (FlxG.keys.justPressed.EIGHT)
-			FlxG.switchState(new CutsceneAnimTestState());
-		#end
-		
 		/* 
 			if (FlxG.keys.justPressed.R)
 			{
@@ -273,7 +268,7 @@ class TitleState extends MusicBeatState {
 			// FlxG.sound.music.stop();
 			
 			new FlxTimer().start(1, function(t) {
-				FlxG.switchState(new MainMenuState());
+				FlxG.switchState(() -> new MainMenuState());
 			});
 		}
 		

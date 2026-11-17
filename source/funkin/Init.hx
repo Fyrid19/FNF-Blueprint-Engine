@@ -22,7 +22,7 @@ class Init extends MusicBeatState {
 	override function create() {
 		Conductor.init();
 		FunkinAssets.init();
-		FunkinData.initialize();
+		FunkinData.init();
 		Highscore.load();
 		
 		FlxG.sound.muteKeys = [ZERO];
@@ -56,7 +56,7 @@ class Init extends MusicBeatState {
 		trace('commit ' + Globals.COMMIT_NUMBER + '(${Globals.COMMIT_HASH})');
 		
 		if (FunkinData.initialized)
-			FlxG.switchState(new funkin.states.WarningState());
+			FlxG.switchState(() -> new funkin.menus.WarningState());
 		else
 			throw "Data failed to initialize!";
 			

@@ -27,27 +27,16 @@ class FunkinData {
 		'maxFramerate' => 60,
 	];
 	
-	public static var loadedMods:Array<Mod> = [];
-	
-	public static function initialize() {
+	public static function init() {
 		save = new FlxSave();
 		save.bind('blueprint', Globals.SAVE_PATH);
 		data = dataDefault;
-		
-		loadActiveMods();
 		
 		loadKeybinds();
 		loadData();
 		
 		if (data != null)
 			initialized = true;
-	}
-	
-	public static function loadActiveMods() {
-		if (save.data.loadedMods == null)
-			save.data.loadedMods = [];
-		loadedMods = save.data.loadedMods;
-		// ModUtil.loadMods();
 	}
 	
 	public static function loadKeybinds() {

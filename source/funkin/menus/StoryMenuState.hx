@@ -1,10 +1,5 @@
 package funkin.menus;
 
-import flixel.addons.transition.FlxTransitionableState;
-import flixel.graphics.frames.FlxAtlasFrames;
-
-import lime.net.curl.CURLCode;
-
 class StoryMenuState extends MusicBeatState {
 	var scoreText:FunkinText;
 	

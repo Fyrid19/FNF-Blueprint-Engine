@@ -10,7 +10,7 @@ import funkin.game.PlayState;
 import funkin.states.*;
 import funkin.objects.*;
 import funkin.objects.ui.*;
-import funkin.game.objects.*;
+import funkin.objects.game.*;
 import funkin.game.song.*;
 
 import shaders.*;

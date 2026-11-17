@@ -18,7 +18,7 @@ class EngineWatermark extends Sprite {
 			text.text = "";
 			text.autoSize = LEFT;
 			text.multiline = false;
-			text.defaultTextFormat = new TextFormat(FullFPS.fpsFont, 8, 0xFFFFFF);
+			text.defaultTextFormat = new TextFormat(FullFPS.fpsFont, 10, 0xFFFFFF);
 			addChild(text);
 		}
 		

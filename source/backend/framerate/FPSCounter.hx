@@ -29,13 +29,13 @@ class FPSCounter extends Sprite {
 		}
 		
 		fpsCountTxt.defaultTextFormat = new TextFormat(FullFPS.fpsFont, 16, 0xFFFFFF);
-		fpsLabelTxt.defaultTextFormat = new TextFormat(FullFPS.fpsFont, 12, 0xFFFFFF);
+		fpsLabelTxt.defaultTextFormat = new TextFormat(FullFPS.fpsFont, 14, 0xFFFFFF);
 		fpsLabelTxt.text = "FPS";
 		
 		times = [];
 	}
 	
-	public override function __enterFrame(delta:Int) {
+	public override function __enterFrame(delta:Float) {
 		var now = Timer.stamp();
 		times.push(now);
 		

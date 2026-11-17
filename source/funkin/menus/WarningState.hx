@@ -13,17 +13,16 @@ class WarningState extends MusicBeatState {
 		background.screenCenter();
 		add(background);
 		
-		warningTxt = new FunkinText(0, 5, '!! WARNING !!', 64, FlxG.width);
+		warningTxt = new FunkinText(0, 5, '!! WARNING !!', 64, FlxG.width, CENTER);
 		warningTxt.color = FlxColor.RED;
 		add(warningTxt);
 		
-		versionInfoTxt = new FunkinText(0, 0, '', 24, FlxG.width);
-		versionInfoTxt.alignment = CENTER;
+		versionInfoTxt = new FunkinText(0, 0, '', 24, FlxG.width, CENTER);
 		versionInfoTxt.y = warningTxt.y + warningTxt.height + 5;
 		versionInfoTxt.text = 'Version: ${Globals.ENGINE_VERSION_STRING} | Current Commit: ${Globals.COMMIT_NUMBER}';
 		add(versionInfoTxt);
 		
-		warningTxt2 = new FunkinText(0, 0, '', 32, FlxG.width);
+		warningTxt2 = new FunkinText(0, 0, '', 32, FlxG.width, CENTER);
 		
 		warningTxt2.text += "!! THIS ENGINE IS CURRENTLY IN ACTIVE DEVELOPMENT !!\n";
 		warningTxt2.text += "This engine is not suggested for use just yet!\n";
@@ -32,7 +31,7 @@ class WarningState extends MusicBeatState {
 		warningTxt2.screenCenter();
 		add(warningTxt2);
 		
-		var confirmationTxt:FunkinText = new FunkinText(0, 0, 'Press ACCEPT to proceed', 64, FlxG.width);
+		var confirmationTxt:FunkinText = new FunkinText(0, 0, 'Press ACCEPT to proceed', 64, FlxG.width, CENTER);
 		confirmationTxt.y = FlxG.height - confirmationTxt.height - 5;
 		add(confirmationTxt);
 	}
@@ -42,7 +41,7 @@ class WarningState extends MusicBeatState {
 		
 		if (controls.ACCEPT) {
 			trace('going to title');
-			FlxG.switchState(new TitleState());
+			FlxG.switchState(() -> new TitleState());
 		}
 	}
 }
