@@ -17,7 +17,7 @@ class MainMenuState extends MusicBeatState {
 		selector = new Selector(menuItems.length);
 		
 		bg = new FlxSprite().loadGraphic(Paths.image('menus/menuBG'));
-		bg.scale.set(1.2);
+		bg.scale.set(1.2, 1.2);
 		bg.screenCenter();
 		add(bg);
 		
