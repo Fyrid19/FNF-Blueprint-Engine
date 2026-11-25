@@ -15,15 +15,15 @@ import funkin.game.song.*;
 
 import shaders.*;
 
-import backend.Globals;
-import backend.FunkinData;
-import backend.Difficulty;
-import backend.music.Conductor;
-import backend.music.MusicBeatState;
-import backend.music.MusicBeatSubstate;
-import backend.assets.Paths;
-import backend.assets.FunkinAssets;
-import backend.transition.LoadingState;
+import funkin.backend.Globals;
+import funkin.backend.FunkinData;
+import funkin.backend.Difficulty;
+import funkin.backend.music.Conductor;
+import funkin.backend.music.MusicBeatState;
+import funkin.backend.music.MusicBeatSubstate;
+import funkin.backend.assets.Paths;
+import funkin.backend.assets.FunkinAssets;
+import funkin.backend.transition.LoadingState;
 
 import openfl.Lib;
 
