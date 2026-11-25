@@ -20,6 +20,8 @@ import sys.FileSystem;
 **/
 class Init extends MusicBeatState {
 	override function create() {
+		MusicBeatState.skipTransitionIn = MusicBeatState.skipTransitionOut = true;
+		
 		Conductor.init();
 		FunkinAssets.init();
 		FunkinData.init();

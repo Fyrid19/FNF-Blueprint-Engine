@@ -32,8 +32,6 @@ class StateTransition extends MusicBeatSubstate {
 		
 		if (transType == IN) {
 			graphic.y = gradient.y - graphic.height;
-		} else if (transType == OUT) {
-			graphic.y = 0;
 		}
 		
 		FlxTween.tween(graphic, {y: FlxG.height}, transTime, {onComplete: Void -> finishTransition()});

@@ -12,9 +12,12 @@ enum TransitionType {
 }
 
 /**
- * FlxTransitionableState with Music Beat properties.
+ * FlxUIState with MusicBeat properties.
  */
 class MusicBeatState extends FlxUIState implements IMusicBeat {
+	public static var skipTransitionIn:Bool = false;
+	public static var skipTransitionOut:Bool = false;
+	
 	public var curStep:Int = 0;
 	public var curBeat:Int = 0;
 	public var curMeasure:Int = 0;
@@ -38,7 +41,7 @@ class MusicBeatState extends FlxUIState implements IMusicBeat {
 		Conductor.onBeatHit.add(beatHit);
 		Conductor.onMeasureHit.add(measureHit);
 		
-		openSubState(Type.createInstance(stateTransOut, [OUT]));
+		if (!skipTransitionIn) openSubState(Type.createInstance(stateTransIn, [IN]));
 	}
 	
 	override function update(elapsed:Float) {
@@ -50,15 +53,19 @@ class MusicBeatState extends FlxUIState implements IMusicBeat {
 	}
 	
 	override function startOutro(onOutroComplete:() -> Void) {
-		openSubState(Type.createInstance(stateTransOut, [
-			IN,
-			() -> {
-				Conductor.onStepHit.remove(stepHit);
-				Conductor.onBeatHit.remove(beatHit);
-				Conductor.onMeasureHit.remove(measureHit);
-				onOutroComplete();
-			}
-		]));
+		if (!skipTransitionOut) {
+			openSubState(Type.createInstance(stateTransOut, [
+				OUT,
+				() -> {
+					Conductor.onStepHit.remove(stepHit);
+					Conductor.onBeatHit.remove(beatHit);
+					Conductor.onMeasureHit.remove(measureHit);
+					onOutroComplete();
+				}
+			]));
+			
+			return;
+		}
 		super.startOutro(onOutroComplete);
 	}
 	

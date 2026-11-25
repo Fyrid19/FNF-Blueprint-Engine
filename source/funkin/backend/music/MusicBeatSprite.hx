@@ -11,6 +11,13 @@ class MusicBeatSprite extends FlxSprite implements IMusicBeat {
 		Conductor.onMeasureHit.add(measureHit);
 	}
 	
+	override public function destroy() {
+		Conductor.onStepHit.remove(stepHit);
+		Conductor.onBeatHit.remove(beatHit);
+		Conductor.onMeasureHit.remove(measureHit);
+		super.destroy();
+	}
+	
 	public function stepHit() {}
 	
 	public function beatHit() {}

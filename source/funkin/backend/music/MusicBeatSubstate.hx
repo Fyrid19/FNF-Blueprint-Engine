@@ -5,7 +5,7 @@ import flixel.FlxSubState;
 import funkin.backend.interfaces.IMusicBeat;
 
 /**
- * FlxSubState with Music Beat properties.
+ * FlxSubState with MusicBeat properties.
  */
 class MusicBeatSubstate extends FlxSubState implements IMusicBeat {
 	public var curStep:Int = 0;

@@ -41,6 +41,7 @@ class WarningState extends MusicBeatState {
 		
 		if (controls.ACCEPT) {
 			trace('going to title');
+			MusicBeatState.skipTransitionIn = MusicBeatState.skipTransitionOut = false;
 			FlxG.switchState(() -> new TitleState());
 		}
 	}
