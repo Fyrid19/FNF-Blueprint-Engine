@@ -68,8 +68,8 @@ class MainMenuState extends MusicBeatState {
 		
 		if (controls.ACCEPT) {
 			var item:MenuItem = menuGrp.members[curSelected];
-			FlxFlicker.flicker(item, 1, 0.1, true, true, (f:FlxFlicker) -> {
-				FlxG.sound.play(Paths.sound('menu/confirmMenu'));
+			FlxG.sound.play(Paths.sound('menu/confirmMenu'));
+			FlxFlicker.flicker(item, 1, 0.05, true, true, (f:FlxFlicker) -> {
 				item.acceptMenu();
 			});
 		}

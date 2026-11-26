@@ -21,27 +21,27 @@ class StateTransition extends MusicBeatSubstate {
 	override public function create() {
 		super.create();
 		
-		transTime = transType == IN ? 0.6 : 0.4;
+		transTime = transType == OUT ? 0.55 : 0.65;
 		
-		gradient = FlxGradient.createGradientFlxSprite(FlxG.width, FlxG.height, (transType == OUT ? [0x0, FlxColor.BLACK] : [FlxColor.BLACK, 0x0]));
+		gradient = FlxGradient.createGradientFlxSprite(FlxG.width, FlxG.height, (transType == IN ? [0x0, FlxColor.BLACK] : [FlxColor.BLACK, 0x0]));
 		graphic = new FlxSprite(0, 0).makeGraphic(FlxG.width, FlxG.height * 2, FlxColor.BLACK);
 		add(gradient);
 		add(graphic);
 		
 		gradient.y = -FlxG.height;
 		
-		if (transType == IN) {
+		if (transType == OUT) {
 			graphic.y = gradient.y - graphic.height;
 		}
 		
-		FlxTween.tween(graphic, {y: FlxG.height}, transTime, {onComplete: Void -> finishTransition()});
+		FlxTween.tween(graphic, {y: transType == OUT ? FlxG.height + gradient.height : 0}, transTime, {onComplete: Void -> finishTransition()});
 	}
 	
 	override public function update(elapsed:Float) {
 		super.update(elapsed);
 		
 		if (gradient != null && graphic != null) {
-			if (transType == IN) {
+			if (transType == OUT) {
 				gradient.y = graphic.y + graphic.height;
 			} else {
 				gradient.y = graphic.y - gradient.height;
